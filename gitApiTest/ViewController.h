@@ -6,9 +6,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GitApiManager.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<ReposResultsDelegate, UITableViewDelegate, UITableViewDataSource>
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 

@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "m-gen-art-print-std-portrait-p1-e8afac96-28f4-40ec-8c51-39ed48e39d3b.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

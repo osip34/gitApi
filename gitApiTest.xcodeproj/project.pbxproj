@@ -15,6 +15,10 @@
 		7D0DB14A256D6A1900497303 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D0DB149256D6A1900497303 /* Assets.xcassets */; };
 		7D0DB14D256D6A1900497303 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D0DB14B256D6A1900497303 /* LaunchScreen.storyboard */; };
 		7D0DB150256D6A1900497303 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D0DB14F256D6A1900497303 /* main.m */; };
+		7D0DB164256D7B4500497303 /* GitApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D0DB160256D77A200497303 /* GitApiManager.m */; };
+		7D0DB166256D7B5200497303 /* RepoDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D0DB162256D78A400497303 /* RepoDetails.m */; };
+		7D75414F257012CB00F723F5 /* RepoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D75414D257012CB00F723F5 /* RepoTableViewCell.m */; };
+		7D754150257012CB00F723F5 /* RepoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D75414E257012CB00F723F5 /* RepoTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +35,13 @@
 		7D0DB14C256D6A1900497303 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7D0DB14E256D6A1900497303 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D0DB14F256D6A1900497303 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7D0DB15F256D77A200497303 /* GitApiManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GitApiManager.h; sourceTree = "<group>"; };
+		7D0DB160256D77A200497303 /* GitApiManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GitApiManager.m; sourceTree = "<group>"; };
+		7D0DB161256D78A400497303 /* RepoDetails.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RepoDetails.h; sourceTree = "<group>"; };
+		7D0DB162256D78A400497303 /* RepoDetails.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RepoDetails.m; sourceTree = "<group>"; };
+		7D75414C257012CB00F723F5 /* RepoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RepoTableViewCell.h; sourceTree = "<group>"; };
+		7D75414D257012CB00F723F5 /* RepoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RepoTableViewCell.m; sourceTree = "<group>"; };
+		7D75414E257012CB00F723F5 /* RepoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepoTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +74,8 @@
 		7D0DB139256D6A1800497303 /* gitApiTest */ = {
 			isa = PBXGroup;
 			children = (
+				7D0DB157256D767D00497303 /* api */,
+				7D54C0F4256EE89200ED6957 /* UI */,
 				7D0DB13A256D6A1800497303 /* AppDelegate.h */,
 				7D0DB13B256D6A1800497303 /* AppDelegate.m */,
 				7D0DB13D256D6A1800497303 /* SceneDelegate.h */,
@@ -77,6 +90,27 @@
 				7D0DB146256D6A1800497303 /* gitApiTest.xcdatamodeld */,
 			);
 			path = gitApiTest;
+			sourceTree = "<group>";
+		};
+		7D0DB157256D767D00497303 /* api */ = {
+			isa = PBXGroup;
+			children = (
+				7D0DB15F256D77A200497303 /* GitApiManager.h */,
+				7D0DB160256D77A200497303 /* GitApiManager.m */,
+				7D0DB161256D78A400497303 /* RepoDetails.h */,
+				7D0DB162256D78A400497303 /* RepoDetails.m */,
+			);
+			path = api;
+			sourceTree = "<group>";
+		};
+		7D54C0F4256EE89200ED6957 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				7D75414C257012CB00F723F5 /* RepoTableViewCell.h */,
+				7D75414D257012CB00F723F5 /* RepoTableViewCell.m */,
+				7D75414E257012CB00F723F5 /* RepoTableViewCell.xib */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +172,7 @@
 				7D0DB14D256D6A1900497303 /* LaunchScreen.storyboard in Resources */,
 				7D0DB14A256D6A1900497303 /* Assets.xcassets in Resources */,
 				7D0DB145256D6A1800497303 /* Main.storyboard in Resources */,
+				7D754150257012CB00F723F5 /* RepoTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,9 +184,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D0DB150256D6A1900497303 /* main.m in Sources */,
+				7D0DB166256D7B5200497303 /* RepoDetails.m in Sources */,
+				7D0DB164256D7B4500497303 /* GitApiManager.m in Sources */,
 				7D0DB142256D6A1800497303 /* ViewController.m in Sources */,
 				7D0DB148256D6A1800497303 /* gitApiTest.xcdatamodeld in Sources */,
 				7D0DB13C256D6A1800497303 /* AppDelegate.m in Sources */,
+				7D75414F257012CB00F723F5 /* RepoTableViewCell.m in Sources */,
 				7D0DB13F256D6A1800497303 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,7 +341,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = some.gitApiTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -320,7 +358,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = some.gitApiTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
