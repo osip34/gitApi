@@ -7,11 +7,13 @@
 
 #import <Foundation/Foundation.h>
 #import "RepoDetails.h"
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol ReposResultsDelegate
     - (void)reposFetched:(NSMutableArray<RepoDetails*>*) repos;
+    - (void)authorImageFetched:(NSData*) imageData;
 @end
 
 @interface GitApiManager : NSObject
@@ -19,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak) id <ReposResultsDelegate> delegate;
 
 - (void)getReposWithPageNumber:(int) page;
+- (void)getImageWithImageUrl:(NSString*)imageUrlString;
 
 @end
 

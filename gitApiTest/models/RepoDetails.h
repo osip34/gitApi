@@ -13,11 +13,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property NSString *name;
 @property NSString *author;
+@property NSString *authorImageURL;
+@property NSData *authorImage;
 @property NSString *details;
 @property int identifier;
 
 - (instancetype)initWithName:(NSString *)name
                       author:(NSString *)author
+              authorImageURL:(NSString *)authorImageURL
                      details:(NSString *) details
                   identifier:(int) identifier;
 

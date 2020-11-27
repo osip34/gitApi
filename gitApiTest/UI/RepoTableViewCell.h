@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *authorName;
 @property (weak, nonatomic) IBOutlet UIImageView *authorImage;
 
--(void)setupCellWith:(NSString*)name description:(NSString*)description;
+-(void)setupCellWith:(NSString*)name description:(NSString*)description authorName:(NSString*)author;
 
 @end
 

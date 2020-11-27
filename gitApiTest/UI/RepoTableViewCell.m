@@ -14,18 +14,22 @@
     // Initialization code
 }
 
--(void)setupCellWith:(NSString*)name description:(NSString*)description {
+-(void)setupCellWith:(NSString*)name description:(NSString*)description authorName:(NSString*)author {
+
+    if (![description isKindOfClass:[NSNull class]]) {
+        self.desc.text = description;
+    };
 
     self.name.text = name;
-    self.desc.text = description;
+    self.authorName.text = author;
 
     self.mainContainer.layer.cornerRadius = 20;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+- (void)prepareForReuse {
+    [super prepareForReuse];
+    self.bottomContainer.hidden = true;
 }
+
 
 @end

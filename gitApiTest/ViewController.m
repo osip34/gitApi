@@ -11,11 +11,14 @@
 #import "ViewController.h"
 #import "GitApiManager.h"
 #import "RepoTableViewCell.h"
+#import "RepoDetails.h"
 
 @interface ViewController ()
 
 @property NSMutableArray<RepoDetails*>* records;
 @property int pageSize;
+@property UIImageView* avatar;
+@property GitApiManager* gitManager;
 
 @end
 
@@ -23,6 +26,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.gitManager = [[GitApiManager alloc]init] ;
+    self.gitManager.delegate = self;
 
     self.pageSize = 20;
     [self setupTableView];
@@ -37,14 +43,11 @@
 };
 
 - (void)getRecords {
-    let gitManager = [[GitApiManager alloc]init] ;
-    gitManager.delegate = self;
     let pageNumber = self.records.count/self.pageSize + 1;
-    [gitManager getReposWithPageNumber:pageNumber];
+    [self.gitManager getReposWithPageNumber:pageNumber];
 };
 
 - (void)reposFetched:(NSMutableArray<RepoDetails*>*) repos {
-    dispatch_async(dispatch_get_main_queue(), ^{
     if (self.records.count == 0) {
         self.records = repos;
     } else {
@@ -52,13 +55,18 @@
     };
         [self.tableView reloadData];
         self.tableView.tableFooterView = nil;
-    });
 }
+
+- (void)authorImageFetched:(NSData *)imageData {
+    let image = [[UIImage alloc]initWithData:imageData];
+    self.avatar.image = image;
+};
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     if (self.records.count == 0) { return [[UITableViewCell alloc]init]; }
     RepoTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Cat" forIndexPath:indexPath];
-    [cell setupCellWith:self.records[indexPath.row].name description:self.records[indexPath.row].author];
+    let record = self.records[indexPath.row];
+    [cell setupCellWith:record.name description:record.details authorName:record.author];
     return cell;
 }
 
@@ -71,6 +79,9 @@
     cell.bottomContainer.hidden = !cell.bottomContainer.hidden;
     [self.tableView beginUpdates];
     [self.tableView endUpdates];
+
+    self.avatar = cell.authorImage;
+    [self.gitManager getImageWithImageUrl:self.records[indexPath.row].authorImageURL];
 };
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
